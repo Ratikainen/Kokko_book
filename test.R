@@ -25,6 +25,7 @@ files <- c("box2_1a.R",
 
 require(lattice)
 require(grid)
+require(ggplot2)
 grid.prompt(TRUE)
 lapply(files, source)
 warnings()
@@ -45,3 +46,4 @@ pip(1:4, 1:4, matrix(rep(c(NaN, -1:1), 4), nrow=4))
 plantheight_advanced(c(501, 501), c(3, 3), 0.5, 1, 0.5)
 plantheight(c(0, 1/3, 2/3, 1), 3, 0.25, 1)
 sexconflict(5, 0.9, 200, 20, 101)
+

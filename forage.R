@@ -98,6 +98,20 @@ forage <- function(dmin, dmax, c, f, maxt, maxc) {
                   colorkey=FALSE, col.regions=colour, aspect="fill",
                   xlab="Time", ylab="Condition", panel=mypanel))
   
+  
+  # NEW PLOT (old not working for me -Christianne) 
+  
+  df <- data.frame(t = rep(1:maxt, each = length(0:maxc)),
+                   c = rep(0:maxc, times = length(1:maxt))) %>% 
+    mutate(FR = mapply(rule,c,t))
+  
+  new_forage_plot <- ggplot(df, aes(x = t, y = c, fill = FR)) + geom_raster() + 
+    scale_fill_manual(values = c("TRUE" = "blue", "FALSE" ="lightblue"), name = "Forage rule") +
+    labs(x = "Time", y = "Condition")
+  
+  plot(new_forage_plot)
+  
+  
   return(list(ForageRule=ForageRule))
 
 }
