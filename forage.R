@@ -100,6 +100,9 @@ forage <- function(dmin, dmax, c, f, maxt, maxc) {
   
   
   # NEW PLOT (old not working for me -Christianne) 
+  rule <- function(c,t){
+    return(ForageRule[c+1,t])
+  }
   
   df <- data.frame(t = rep(1:maxt, each = length(0:maxc)),
                    c = rep(0:maxc, times = length(1:maxt))) %>% 
