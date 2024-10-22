@@ -98,7 +98,7 @@ dispersal <- function(N, B, p, q, b, m, no_plot=FALSE) {
     
     ## mortality for the ones who moved
     death <- which(as.logical((runif(nrow(newpop)) < m) * move))
-    newpop <- newpop[-death,]
+    if (length(death) != 0) newpop <- newpop[-death,]
     
     ## the new generation is ready
     pop <- newpop
