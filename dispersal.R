@@ -11,6 +11,7 @@
 ## deviation over time (xmean, xstd),
 ## the size of the population (n),
 ## and the number of sites occupied (occupied).
+require(lattice)
 
 dispersal <- function(N, B, p, q, b, m, no_plot=FALSE) {
 
